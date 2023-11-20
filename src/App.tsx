@@ -1,10 +1,11 @@
 import './App.css'
+import Navigation from './components/__tests__/Navigation'
 
 function App() {
 
   return (
     <>
-    <h1></h1>
+    <Navigation />
 
     </>
   )
