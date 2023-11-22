@@ -1,0 +1,8 @@
+.trending-location {
+    width: 18rem;
+    height: 18rem;
+}
+
+.trending-location:hover {
+    cursor: pointer;
+}
