@@ -1,5 +1,5 @@
 import './App.css'
-import Navigation from './components/__tests__/Navigation'
+import Navigation from './components/Navigation'
 import Search from './components/Search'
 
 function App() {
