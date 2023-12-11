@@ -2,15 +2,20 @@ import './App.css'
 import Navigation from './components/Navigation'
 import Search from './components/Search'
 import Footer from './components/Footer'
-import Location from './components/Location'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
 
   return (
     <>
       <Navigation />
-      <Search />
-      <Location />
+      <Router>
+      <Routes>
+        <Route path="/job-board" element={<Search/>} />
+      </Routes>
+        
+      </Router>
+      
       <Footer />
     </>
   )
