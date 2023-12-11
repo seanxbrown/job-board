@@ -18,7 +18,7 @@ const Navigation = () => {
                 </Nav>
                 <Nav>
                     <Nav.Link>Register</Nav.Link>
-                    <Nav.Link>Candidate Login</Nav.Link>
+                    <Link to="/job-board/login" className="nav-link">Candidate Login</Link>
                     <Link to="/job-board/recruiter-login" className="nav-link">Recruiter Login</Link>
                 </Nav>
             </Navbar.Collapse>
