@@ -1,6 +1,6 @@
 import './App.css'
 import Navigation from './components/Navigation'
-import Search from './components/Search'
+import Home from './pages/Home'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
@@ -10,12 +10,10 @@ function App() {
     <>
       <Navigation />
       <Router>
-      <Routes>
-        <Route path="/job-board" element={<Search/>} />
-      </Routes>
-        
+        <Routes>
+          <Route path="/job-board" element={<Home/>} />
+        </Routes>
       </Router>
-      
       <Footer />
     </>
   )
