@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import RecruiterLogIn from "./pages/RecruiterLogIn"
 import LogIn from './pages/Login'
+import Jobs from './pages/Jobs/Jobs'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route path="/job-board" element={<Home/>} />
             <Route path="/job-board/recruiter-login" element={ <RecruiterLogIn />} />
             <Route path="/job-board/login" element={ <LogIn />} />
+            <Route path="/job-board/jobs" element={ <Jobs />} />
           </Routes>
         <Footer />
       </Router>

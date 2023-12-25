@@ -3,14 +3,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useNavigate } from "react-router-dom";
 
 
 const Search = () => {
+    const navigate = useNavigate()
   return (
     <Container fluid className="bg-secondary p-5 justify-content-center" id="search-container=main">
         <Container id="search-form-container-main">
             <h2 className="fw-bold text-light">Find your dream job, find your freedom.</h2>
-            <Form className="py-5">
+            <Form className="py-5" onSubmit={ ()=> navigate("/job-board/jobs") }>
                 <Row className="py-4 row-gap-2">
                     <Col xs={12} sm={5}>
                         <Form.Group>
