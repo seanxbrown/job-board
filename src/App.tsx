@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import RecruiterLogIn from "./pages/RecruiterLogIn"
 import LogIn from './pages/Login'
 import Jobs from './pages/Jobs/Jobs'
+import Registration from './pages/Registration'
 
 function App() {
 
@@ -15,9 +16,10 @@ function App() {
         <Navigation />
           <Routes>
             <Route path="/job-board" element={<Home/>} />
-            <Route path="/job-board/recruiter-login" element={ <RecruiterLogIn />} />
-            <Route path="/job-board/login" element={ <LogIn />} />
-            <Route path="/job-board/jobs" element={ <Jobs />} />
+            <Route path="/job-board/recruiter-login" element={<RecruiterLogIn />} />
+            <Route path="/job-board/login" element={<LogIn />} />
+            <Route path="/job-board/jobs" element={<Jobs />} />
+            <Route path="/job-board/register" element={<Registration />} />
           </Routes>
         <Footer />
       </Router>

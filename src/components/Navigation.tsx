@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -17,7 +17,7 @@ const Navigation = () => {
                     <Nav.Link>Career Guidance</Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link>Register</Nav.Link>
+                    <Link to="/job-board/register" className="nav-link">Register</Link>
                     <Link to="/job-board/login" className="nav-link">Candidate Login</Link>
                     <Link to="/job-board/recruiter-login" className="nav-link">Recruiter Login</Link>
                 </Nav>
