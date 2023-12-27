@@ -2,8 +2,11 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import { useContext } from "react"
+import { AuthContext } from "../contexts/AuthContext";
 
 const Navigation = () => {
+    const user = useContext(AuthContext)
   return (
     <Navbar expand="lg" collapseOnSelect bg="primary">
         <Container fluid className="bg-">
@@ -16,11 +19,13 @@ const Navigation = () => {
                     <Nav.Link>Jobs</Nav.Link>
                     <Nav.Link>Career Guidance</Nav.Link>
                 </Nav>
-                <Nav>
+                { !user && <Nav>
                     <Link to="/job-board/register" className="nav-link">Register</Link>
                     <Link to="/job-board/login" className="nav-link">Candidate Login</Link>
                     <Link to="/job-board/recruiter-login" className="nav-link">Recruiter Login</Link>
                 </Nav>
+                }
+                { user && <Navbar.Text>{user.email}</Navbar.Text>}
             </Navbar.Collapse>
         </Container>
     </Navbar>
