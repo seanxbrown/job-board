@@ -4,9 +4,18 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext";
+import { signOut, auth } from "../common/firebaseConfig"
 
 const Navigation = () => {
     const user = useContext(AuthContext)
+    async function signUserOut() {
+        try {
+            await signOut(auth)
+            alert("Logged out successfully")
+        } catch(e) {
+            alert(e)
+        }
+    }
   return (
     <Navbar expand="lg" collapseOnSelect bg="primary">
         <Container fluid className="bg-">
@@ -25,7 +34,12 @@ const Navigation = () => {
                     <Link to="/job-board/recruiter-login" className="nav-link">Recruiter Login</Link>
                 </Nav>
                 }
-                { user && <Navbar.Text>{user.email}</Navbar.Text>}
+                { user && 
+                    <Nav>
+                        <Navbar.Text className="me-4">{user.email}</Navbar.Text>
+                        <Navbar.Text onClick={signUserOut}>Log out</Navbar.Text>
+                    </Nav>
+                    }
             </Navbar.Collapse>
         </Container>
     </Navbar>
