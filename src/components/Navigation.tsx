@@ -20,12 +20,12 @@ const Navigation = () => {
     <Navbar expand="lg" collapseOnSelect bg="primary">
         <Container fluid className="bg-">
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Brand>
+            <Link to="/job-board" className="navbar-brand">
                 Job Board
-            </Navbar.Brand>
+            </Link>
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-between">
                 <Nav>
-                    <Nav.Link>Jobs</Nav.Link>
+                    <Link to="/job-board/jobs" className="nav-link">Jobs</Link>
                     <Nav.Link>Career Guidance</Nav.Link>
                 </Nav>
                 { !user && <Nav>
