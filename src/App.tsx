@@ -18,6 +18,8 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser)
+      }else {
+        setUser(null)
       }
     })
     return () => unsubscribe()

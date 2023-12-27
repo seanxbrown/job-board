@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, User, signOut } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -9,7 +9,6 @@ const firebaseConfig = {
   storageBucket: "job-board-2d3d6.appspot.com",
   messagingSenderId: "656145598850",
   appId: "1:656145598850:web:672266c5f1a9a1a517e79b"
-
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,7 +19,8 @@ export {
     app,
     auth,
     createUserWithEmailAndPassword,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut 
     }
 
 export type { User }
