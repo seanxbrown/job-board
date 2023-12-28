@@ -2,16 +2,17 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
-import { useContext } from "react"
+import { useContext, Dispatch, SetStateAction } from "react"
 import { AuthContext } from "../contexts/AuthContext";
 import { signOut, auth } from "../common/firebaseConfig"
 
-const Navigation = () => {
+const Navigation = ({ setRole }: { setRole: Dispatch<SetStateAction<"candidate" | "recruiter" | null>> }) => {
     const user = useContext(AuthContext)
     async function signUserOut() {
         try {
             await signOut(auth)
             alert("Logged out successfully")
+            setRole(null)
         } catch(e) {
             alert(e)
         }

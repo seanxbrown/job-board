@@ -10,9 +10,11 @@ import Registration from './pages/Registration'
 import { useState, useEffect } from "react"
 import { AuthContext } from './contexts/AuthContext'
 import { auth, onAuthStateChanged, User } from "./common/firebaseConfig"
+import { RoleContext } from './contexts/RoleContext'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
+  const [role, setRole] = useState<"candidate" | "recruiter" | null>(null)
 
   useEffect(()=> {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -27,19 +29,21 @@ function App() {
 
   return (
     <AuthContext.Provider value={user}>
+      <RoleContext.Provider value={role}>
        <>
         <Router>
-          <Navigation />
+          <Navigation setRole={setRole}/>
             <Routes>
               <Route path="/job-board" element={<Home/>} />
               <Route path="/job-board/recruiter-login" element={<RecruiterLogIn />} />
               <Route path="/job-board/login" element={<LogIn />} />
               <Route path="/job-board/jobs" element={<Jobs />} />
-              <Route path="/job-board/register" element={<Registration />} />
+              <Route path="/job-board/register" element={<Registration setRole={setRole}/>} />
             </Routes>
           <Footer />
         </Router>
-      </>
+        </>
+      </RoleContext.Provider>
     </AuthContext.Provider>
   )
 }

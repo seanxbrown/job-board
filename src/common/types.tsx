@@ -11,3 +11,16 @@ export interface Job {
     location: string,
     description: string
 }
+
+export interface UserAccount {
+    firstName?: string,
+    lastName?: string,
+    email: string,
+    id: string,
+    city?: string,
+    country?: string,
+    jobTitle?: string,
+    role: "candidate" | "recruiter",
+    currentSalary?: number,
+    desiredSalary?: number,
+}
