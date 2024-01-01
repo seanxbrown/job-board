@@ -35,8 +35,8 @@ function App() {
           <Navigation setRole={setRole}/>
             <Routes>
               <Route path="/job-board" element={<Home/>} />
-              <Route path="/job-board/recruiter-login" element={<RecruiterLogIn />} />
-              <Route path="/job-board/login" element={<LogIn />} />
+              <Route path="/job-board/recruiter-login" element={<RecruiterLogIn setRole={setRole}/>} />
+              <Route path="/job-board/login" element={<LogIn setRole={setRole}/>} />
               <Route path="/job-board/jobs" element={<Jobs />} />
               <Route path="/job-board/register" element={<Registration setRole={setRole}/>} />
             </Routes>
