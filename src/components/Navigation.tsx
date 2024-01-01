@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { useContext, Dispatch, SetStateAction } from "react"
 import { AuthContext } from "../contexts/AuthContext";
 import { signOut, auth } from "../common/firebaseConfig"
+import { RoleContext } from "../contexts/RoleContext";
 
 const Navigation = ({ setRole }: { setRole: Dispatch<SetStateAction<"candidate" | "recruiter" | null>> }) => {
     const user = useContext(AuthContext)
+    const role = useContext(RoleContext)
     async function signUserOut() {
         try {
             await signOut(auth)
@@ -29,13 +31,13 @@ const Navigation = ({ setRole }: { setRole: Dispatch<SetStateAction<"candidate" 
                     <Link to="/job-board/jobs" className="nav-link">Jobs</Link>
                     <Nav.Link>Career Guidance</Nav.Link>
                 </Nav>
-                { !user && <Nav>
+                { (!user || !role) && <Nav>
                     <Link to="/job-board/register" className="nav-link">Register</Link>
                     <Link to="/job-board/login" className="nav-link">Candidate Login</Link>
                     <Link to="/job-board/recruiter-login" className="nav-link">Recruiter Login</Link>
                 </Nav>
                 }
-                { user && 
+                { (user && role) &&
                     <Nav>
                         <Navbar.Text className="me-4">{user.email}</Navbar.Text>
                         <Navbar.Text onClick={signUserOut}>Log out</Navbar.Text>
