@@ -11,6 +11,7 @@ import { useState, useEffect } from "react"
 import { AuthContext } from './contexts/AuthContext'
 import { auth, onAuthStateChanged, User } from "./common/firebaseConfig"
 import { RoleContext } from './contexts/RoleContext'
+import UpdateProfile from "./pages/UpdateProfile/UpdateProfile"
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -39,6 +40,7 @@ function App() {
               <Route path="/job-board/login" element={<LogIn setRole={setRole}/>} />
               <Route path="/job-board/jobs" element={<Jobs />} />
               <Route path="/job-board/register" element={<Registration setRole={setRole}/>} />
+              <Route path="/job-board/update-profile" element={<UpdateProfile/>} />
             </Routes>
           <Footer />
         </Router>

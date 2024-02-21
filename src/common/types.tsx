@@ -13,14 +13,21 @@ export interface Job {
 }
 
 export interface UserAccount {
-    firstName?: string,
-    lastName?: string,
+    firstName?: string | null,
+    lastName?: string | null,
     email: string,
+    contactNumber?: number | null,
     id: string,
-    city?: string,
-    country?: string,
-    jobTitle?: string,
+    city?: string | null,
+    country?: string | null,
+    jobTitle?: string | null,
+    desiredJobTitle?: string | null,
+    desiredLocation?: string | null,
     role: "candidate" | "recruiter",
-    currentSalary?: number,
-    desiredSalary?: number,
+    currentSalary?: number | null,
+    desiredSalary?: number | null,
+    contractTypes?: String[],
+    hours?: String[],
+    skills?: String[],
+    qualifications?: String[]
 }
