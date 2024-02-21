@@ -40,6 +40,7 @@ const Navigation = ({ setRole }: { setRole: Dispatch<SetStateAction<"candidate" 
                 { (user && role) &&
                     <Nav>
                         <Navbar.Text className="me-4">{user.email}</Navbar.Text>
+                        { role === "candidate" && <Link to="/job-board/update-profile" className="nav-link">Update Profile</Link> }
                         <Navbar.Text onClick={signUserOut}>Log out</Navbar.Text>
                     </Nav>
                     }
